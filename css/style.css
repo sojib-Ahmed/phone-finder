@@ -11,13 +11,17 @@ body{
     padding: 0;
     box-sizing: border-box;
 }
+/* titel bg color  */
+.titel{
+    background-color: #554d536c;
+}
 .phone-store-title{
     text-align: center;
     color: hsl(0, 14%, 93%);
     font-size: 7vw;
     color: #504b4b;
-    text-shadow: 4px 4px 7px #ece5e5,
-               -4px -4px 7px #4b4a4a;
+    text-shadow: 4px 4px 7px #c22b8f81,
+               -4px -4px 7px #da20abd5;
 }
 .search-box{
     width: 65%;
