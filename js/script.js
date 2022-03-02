@@ -108,3 +108,109 @@ const displayPhone = phones => {
         })
     })
 }
+
+// phone detail card add 
+const loadPhoneDetails = loadDetails => {
+    displayHide('search-input', 'block');
+    displayHide('container-hide', 'none');
+    displayHide('all-phone', 'none');
+
+    fetch(`https://openapi.programming-hero.com/api/phone/${loadDetails}`)
+        .then(res => res.json())
+        .then(data => displayPhoneDetails(data.data));
+
+}
+// phoner display card 
+const displayPhoneDetails = details => {
+    // console.log(details)
+    const phoneDetails = document.getElementById('phone-details')
+    cleanContent('phone-container');
+    phoneDetails.innerHTML = `
+            <div class="col-12 col-lg-6 col-md-12">
+                <div>
+                    <img src="${details.image}" class="w-100 rounded-3" alt="">
+                </div>
+            </div>
+            <div class="col-12 col-lg-6 col-md-12">
+                <div>
+                    <table class="table">
+                        <tbody>
+                          <tr>
+                            <td>Brand:</td>
+                            <td><b>${details?.brand}</b></td>
+                          </tr>
+                          <tr>
+                            <td>Name:</td>
+                            <td><b>${details?.name}</b></td>
+                          </tr>
+                          <tr>
+                            <td>ReleaseDate:</td>
+                            <td><b>${details?.releaseDate ? details?.releaseDate : "Comming Soon"}</b></td>
+                          </tr>
+                          <tr>
+                            <td>ChipSet:</td>
+                            <td><b>${details?.mainFeatures?.chipSet ? details.mainFeatures.chipSet : ""}</b></td>
+                          </tr>
+                          <tr>
+                            <td>Display Size:</td>
+                            <td><b>${details?.mainFeatures?.displaySize ? details.mainFeatures.displaySize : ""}</b></td>
+                          </tr>
+                          <tr>
+                            <td>Memory:</td>
+                            <td><b>${details?.mainFeatures?.memory ? details.mainFeatures.memory : ""}</b></td>
+                          </tr>
+                          <tr>
+                            <td>Storage:</td>
+                            <td><b>${details?.mainFeatures?.storage ? details.mainFeatures.storage : ""}</b></td>
+                          </tr>
+                          <tr>
+                          <td>Bluetooth</td>
+                          <td><b>${details?.others?.Bluetooth ? details.others.Bluetooth : ""}</b></td>
+                          </tr>
+                          <tr>
+                            <td>GPS</td>
+                            <td><b>${details?.others?.GPS ? details.others.GPS : ""}</b></td>
+                          </tr>
+                          <tr>
+                            <td>NFC</td>
+                            <td><b>${details?.others?.NFC ? details.others.NFC : ""}</b></td>
+                          </tr>
+                          <tr>
+                            <td>Radio</td>
+                            <td><b>${details?.others?.Radio ? details.others.Radio : ""}</b></td>
+                          </tr>
+                          <tr>
+                            <td>USB</td>
+                            <td><b>${details?.others?.USB ? details.others.USB : ""}</b></td>
+                          </tr>
+                          <tr>
+                            <td>WLAN</td>
+                            <td><b>${details?.others?.WLAN ? details.others.WLAN : ""}</b></td>
+                          </tr>
+                          <tr>
+                            <td>Sensors</td>
+                            <td>
+                                 <b>
+                                    <ul  class="list-unstyled">
+                                        <li>${details?.mainFeatures?.sensors[0] ? details.mainFeatures.sensors[0] : ""}</li>
+                                        <li>${details?.mainFeatures?.sensors[1] ? details.mainFeatures.sensors[1] : ""}</li>
+                                        <li>${details?.mainFeatures?.sensors[2] ? details.mainFeatures.sensors[2] : ""}</li>
+                                        <li>${details?.mainFeatures?.sensors[3] ? details.mainFeatures.sensors[3] : ""}</li>
+                                        <li>${details?.mainFeatures?.sensors[4] ? details.mainFeatures.sensors[4] : ""}</li>
+                                        <li>${details?.mainFeatures?.sensors[5] ? details?.mainFeatures.sensors[5] : ""}</li>
+                                        <li>${details?.mainFeatures?.sensors[6] ? details.mainFeatures.sensors[6] : ""}</li>
+                                        <li>${details?.mainFeatures?.sensors[7] ? details.mainFeatures.sensors[7] : ""}</li>
+                                        <li>${details?.mainFeatures?.sensors[8] ? details.mainFeatures.sensors[8] : ""}</li>
+                                    </ul>
+                                </b>
+                            </td>
+                        </tr>
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+    `
+    displayHide('search-input', 'none');
+    displayHide('container-hide', 'block');
+    displayHide('phone-details-container', 'block');
+}
