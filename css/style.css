@@ -45,3 +45,57 @@ body{
     cursor: pointer;
     opacity: 0.6;
 }
+
+/* Phone Card Style  */
+.phone-card{
+    background-color: #f1ebf1;
+    border-radius: 20px;
+    box-shadow: 5px 5px 8px rgba(212, 61, 187, 0.801),
+            -6px -6px 8px rgb(228, 15, 192);
+    height: 100%;
+    padding: 10px;
+}
+.phone-card img{
+    border-radius: 20px;
+}
+
+.details-btn{
+    text-align: center;
+    padding: 10px 30px;
+    outline: none;
+    border: none;
+    font-size: 16px;
+    opacity: 0.8;
+    font-weight: 600;
+    border-radius: 20px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 4px 4px 7px,
+    -4px -4px 7px #0e0d0d;
+}
+.details-btn:hover{
+    background: linear-gradient(360deg, #4b9e9e,#28e6e6,#0095ff);
+    color: rgb(8, 8, 8);
+}
+
+#phone-details{
+    border-radius: 20px;
+     box-shadow: 5px 5px 8px rgba(212, 61, 187, 0.801),
+            -6px -6px 8px rgb(228, 15, 192);
+}
+
+/* search-input Style  */
+#search-input{
+    background-color:#111111(211, 21, 21);
+    background-image: url('../images/search-input/search-input.gif');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20%;
+    width: 100%;
+    height: 100vh;
+    display: none;
+    z-index: 99999;
+}
+
+#all-phone{
+    display: none;
+}
